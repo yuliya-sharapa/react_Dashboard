@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import StatisticsCard from './StatisticsCard'
+
 
 export default function Content() {
     return (
@@ -32,7 +34,7 @@ export default function Content() {
             <li className="nav-item dropdown no-arrow">
               <a className="nav-link dropdown-toggle" href="/" id="userDropdown">
                 <span className="mr-2 d-none d-lg-inline text-gray-600 small">Walter White</span>
-                <img className="img-profile rounded-circle" src="assets/images/dummy-avatar.jpg" width={60} />
+                <img className="img-profile rounded-circle" src="assets/images/dummy-avatar.jpg" width={60} alt="avatar"/>
               </a>
             </li>
           </ul>
@@ -44,58 +46,27 @@ export default function Content() {
           <div className="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
           </div>
-          {/* Content Row */}
-          <div className="row">
-            {/* Amount of Products in DB */}
-            <div className="col-md-4 mb-4">
-              <div className="card border-left-primary shadow h-100 py-2">
-                <div className="card-body">
-                  <div className="row no-gutters align-items-center">
-                    <div className="col mr-2">
-                      <div className="text-xs font-weight-bold text-primary text-uppercase mb-1"> Products in Data Base</div>
-                      <div className="h5 mb-0 font-weight-bold text-gray-800">135</div>
-                    </div>
-                    <div className="col-auto">
-                      <i className="fas fa-clipboard-list fa-2x text-gray-300" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* $$$ of all products in DB */}
-            <div className="col-md-4 mb-4">
-              <div className="card border-left-success shadow h-100 py-2">
-                <div className="card-body">
-                  <div className="row no-gutters align-items-center">
-                    <div className="col mr-2">
-                      <div className="text-xs font-weight-bold text-success text-uppercase mb-1"> Amount in products</div>
-                      <div className="h5 mb-0 font-weight-bold text-gray-800">$546.456</div>
-                    </div>
-                    <div className="col-auto">
-                      <i className="fas fa-dollar-sign fa-2x text-gray-300" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Amount of users in DB */}
-            <div className="col-md-4 mb-4">
-              <div className="card border-left-warning shadow h-100 py-2">
-                <div className="card-body">
-                  <div className="row no-gutters align-items-center">
-                    <div className="col mr-2">
-                      <div className="text-xs font-weight-bold text-warning text-uppercase mb-1">Users quantity
-                      </div>
-                      <div className="h5 mb-0 font-weight-bold text-gray-800">38</div>
-                    </div>
-                    <div className="col-auto">
-                      <i className="fas fa-user-check fa-2x text-gray-300" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <StatisticsCard cards={[
+            {
+              blcolor:"primary",
+              title:'Products in Data Base',
+              number:135,
+              icon:"clipboard-list"
+            },
+            {
+              blcolor:'success',
+              title:'Amount in products',
+              number:546.456,
+              icon:"dollar-sign"
+            },
+            {
+              blcolor:'warning',
+              title:'Users quantity',
+              number:38,
+              icon:"user-check"
+            },
+
+          ]}/>
           {/* Content Row */}
           <div className="row">
             {/* Last Product in DB */}
@@ -106,7 +77,7 @@ export default function Content() {
                 </div>
                 <div className="card-body">
                   <div className="text-center">
-                    <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: '25rem'}} src="assets/images/product_dummy.svg" alt="image dummy" />
+                    <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: '25rem'}} src="assets/images/product_dummy.svg" alt="dummy"/>
                   </div>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, consequatur explicabo officia inventore libero veritatis iure voluptate reiciendis a magnam, vitae, aperiam voluptatum non corporis quae dolorem culpa exercitationem ratione?</p>
                   <a target="_blank" rel="nofollow" href="/">View product detail</a>
