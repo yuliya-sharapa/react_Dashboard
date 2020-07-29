@@ -1,5 +1,6 @@
 import React from 'react';
-import StatisticsCard from './StatisticsCard'
+import ProductList from './ProductTable/ProductList'
+import GeneralStatistics from './GeneralStatistics/GeneralStatistics';
 
 
 export default function Content() {
@@ -46,27 +47,9 @@ export default function Content() {
           <div className="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
           </div>
-          <StatisticsCard cards={[
-            {
-              blcolor:"primary",
-              title:'Products in Data Base',
-              number:135,
-              icon:"clipboard-list"
-            },
-            {
-              blcolor:'success',
-              title:'Amount in products',
-              number:546.456,
-              icon:"dollar-sign"
-            },
-            {
-              blcolor:'warning',
-              title:'Users quantity',
-              number:38,
-              icon:"user-check"
-            },
 
-          ]}/>
+          <GeneralStatistics />
+
           {/* Content Row */}
           <div className="row">
             {/* Last Product in DB */}
@@ -139,6 +122,9 @@ export default function Content() {
               </div>
             </div>
           </div>
+
+          <ProductList/>
+          
         </div>
         {/* /.container-fluid */}
       </div>
