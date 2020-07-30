@@ -1,14 +1,41 @@
-import React from 'react'
+import React, { Component } from 'react'
 import StatisticsCard from './StatisticsCard'
 
-export default function GeneralStatistics() {
-    return (
+class GeneralStatistics extends Component {
+
+   constructor(props){
+    super(props)
+    this.state = {
+      users: {},
+      products: {},
+      categories: {}
+      };
+   }
+
+    componentDidMount() {
+      //  this.callAPI('http://localhost:3030/api/users')
+    }
+
+    callAPI(urlApi){
+      fetch(urlApi)
+      .then(res => res.json())
+      .then((data) => {
+          console.log(data);
+          this.setState({ users: data })
+      })
+      .catch(error => console.log(error))
+    }
+
+    render () {
+      const { users } = this.state;
+      console.log(users);
+      return (
         <div>
             <StatisticsCard cards={[
             {
               blcolor:"primary",
               title:'Products in Data Base',
-              number:135,
+              number: 169,
               icon:"clipboard-list"
             },
             {
@@ -26,5 +53,8 @@ export default function GeneralStatistics() {
 
           ]}/>
         </div>
-    )
+      )
+    };
 }
+
+export default GeneralStatistics;
