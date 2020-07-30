@@ -11,7 +11,7 @@ export default function ProductList() {
             <div className="card shadow mb-4">
                 <div className="card-body">
                     <div className="table-responsive">
-                        <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table className="table table-bordered" id="dataTable" width="100%">
                             <thead>
                                 <TableColumns/>
                             </thead>
@@ -20,6 +20,7 @@ export default function ProductList() {
                             </tfoot>
                             <ProductDetails products={[
                                 {
+                                id:1,
                                 name: "Leche",
                                 description: "Muy bueno",
                                 price: 10,
@@ -28,6 +29,7 @@ export default function ProductList() {
                                 stock: 50
                                 },
                                 {
+                                id:2,
                                 name: "Galletas",
                                 description: "Muy ricas",
                                 price: 20,

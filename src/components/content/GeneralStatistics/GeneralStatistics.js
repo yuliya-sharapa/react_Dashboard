@@ -13,7 +13,7 @@ class GeneralStatistics extends Component {
    }
 
     componentDidMount() {
-      //  this.callAPI('http://localhost:3030/api/users')
+      this.callAPI('http://localhost:3030/api/users')
     }
 
     callAPI(urlApi){
@@ -35,7 +35,7 @@ class GeneralStatistics extends Component {
             {
               blcolor:"primary",
               title:'Products in Data Base',
-              number: 169,
+              number: users.count,
               icon:"clipboard-list"
             },
             {

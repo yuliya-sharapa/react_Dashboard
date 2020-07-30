@@ -3,13 +3,13 @@ import React from 'react'
 export default function ProductDetails(props) {
     return (
         <tbody>
-        {props.products.map(product=>{
+        {props.products.map( (product, index) =>{
             return(
-                <tr>
-                    <td>{product.name}</td>
-                    <td>{product.description}</td>
-                    <td>${product.price}</td>
-                    <td>
+                <tr key={"row" + index }>
+                    <td key={"tdname" + index } >{product.name}</td>
+                    <td key={"tddescripcion" + index } >{product.description}</td>
+                    <td key={"tdprice"+ index}  >${product.price}</td>
+                    <td key={"tdcategory" + index }>
                         <ul>
                             {product.categories.map((category, i)=>{
                                 return(
@@ -18,7 +18,7 @@ export default function ProductDetails(props) {
                             })}
                         </ul>
                     </td>
-                    <td>
+                    <td key={"tdcolor" + index} >
                         <ul>
                             {product.colors.map((color, i)=>{
                                 return(
@@ -27,7 +27,7 @@ export default function ProductDetails(props) {
                             })}
                         </ul>
                     </td>
-                    <td>{product.stock}</td>
+                    <td key={"tdstock" + index }>{product.stock}</td>
                 </tr>
             )
         }
