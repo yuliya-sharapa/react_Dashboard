@@ -1,6 +1,32 @@
 import React from 'react'
 
-export default function LastProduct() {
+
+export default class LastProduct extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = {}
+    }
+
+    componentDidMount() {
+        this.callAPI('http://localhost:3030/api/products')
+        }
+
+    callAPI = (urlApi) => {
+        fetch(urlApi)
+        .then(res => res.json())
+        .then((result) => {
+            console.log(result);
+            this.findLastProduct(result)
+        })
+        .catch(error => console.log(error))
+    }
+
+    findLastProduct = (data) => {
+
+    }
+
+    render(){
     return (
         <div className="col-lg-6 mb-4">
             <div className="card shadow mb-4">
@@ -17,4 +43,5 @@ export default function LastProduct() {
             </div>
         </div>
     )
+    }
 }

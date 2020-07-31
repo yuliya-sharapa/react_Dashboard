@@ -5,12 +5,7 @@ class StatisticsCard extends Component {
 
     constructor(props){
         super(props);
-        this.state = {
-            blcolor:'primary',
-            title:'Products in Data Base',
-            number: 20,
-            icon:'clipboard-list'
-        }
+        this.state = {}
     }
 
     componentDidMount() {
@@ -30,14 +25,41 @@ class StatisticsCard extends Component {
         }
     }
 
-    callAPI(urlApi){
+    callAPI = (urlApi) => {
         fetch(urlApi)
         .then(res => res.json())
         .then((result) => {
             console.log(result);
-            this.setState({ dataCard: result })
+            this.setDataCard(result)
         })
         .catch(error => console.log(error))
+    }
+
+    setDataCard = (data) => {
+        switch(this.props.tipo){
+            case "product":
+                this.setState( {blcolor:'primary',
+                                title:'Products in Data Base',
+                                number: data.count,
+                                icon:'clipboard-list'});
+                break;
+            case "category":
+                let countCategory = Object.values(data.countByCategory).length
+                this.setState( {blcolor:'success',
+                                title:'Categories in Data Base',
+                                number: countCategory,
+                                icon:'clipboard-list'});
+                break;
+            case "user":
+                this.setState( {  blcolor:'warning',
+                                title:'Users quantity',
+                                number: data.count,
+                                icon:'user-check'});
+                break;
+            default:
+                console.log("ERROR");
+                break;
+        }
     }
 
     render () {
@@ -49,7 +71,7 @@ class StatisticsCard extends Component {
                         <div className="col mr-2">
                             <div className="text-xs font-weight-bold text-primary text-uppercase mb-1"> {this.state.title} </div>
                             <div className="h5 mb-0 font-weight-bold text-gray-800">
-                                {this.state.title ==='Amount in products' ? '$'+this.state.number: this.state.number}
+                                { this.state.number}
                             </div>
                         </div>
                         <div className="col-auto">
