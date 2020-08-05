@@ -1,5 +1,5 @@
-import React from 'react'
-import StatisticsCard from './StatisticsCard'
+import React from 'react';
+import StatisticsCard from './StatisticsCard';
 
 export default function GeneralStatistics() {
   return (
