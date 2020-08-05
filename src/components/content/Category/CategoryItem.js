@@ -34,7 +34,7 @@ export default class CategoryItem extends Component {
                         </div>
                     </div>
                 </div>
-                ))};
+                ))}
             </div>
         )
 
