@@ -7,7 +7,6 @@ export default class CategoryItem extends Component {
         this.state = {
             items:[]
         }
-        
     }
 
     componentDidMount(){
@@ -30,7 +29,7 @@ export default class CategoryItem extends Component {
                 <div className="col-lg-6 mb-4">
                     <div className="card bg-info text-white shadow">
                         <div className="card-body">
-                            {item.descripcion}: {item.countRubro} productos
+                            {item.descripcion}: <b> {item.countRubro} </b> productos
                         </div>
                     </div>
                 </div>
