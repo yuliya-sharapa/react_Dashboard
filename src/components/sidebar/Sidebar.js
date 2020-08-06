@@ -21,7 +21,7 @@ export default function Sidebar(props) {
       {props.items.map((item, index) => {
         return (
           <li className="nav-item active" key={"Item"+index}>
-            <a className="nav-link" href="/">
+            <a className="nav-link" href={props.links[index]}>
               <i className="fas fa-fw fa-tachometer-alt"></i>
               <span>{item}</span>
             </a>

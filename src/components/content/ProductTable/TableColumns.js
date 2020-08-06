@@ -7,8 +7,6 @@ export default function TableColumns() {
             <th>Description</th>
             <th>Price</th>
             <th>Categories</th>
-            <th>Colors</th>
-            <th>Stock</th>
         </tr>
     )
 }

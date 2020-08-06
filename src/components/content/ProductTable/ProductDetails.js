@@ -1,38 +1,43 @@
-import React from 'react'
+import React, {Component} from 'react';
+import ProductRow from './ProductRow';
 
-export default function ProductDetails(props) {
-    return (
-        <tbody>
-        {props.products.map( (product, index) =>{
-            return(
-                <tr key={"row" + index }>
-                    <td key={"tdname" + index } >{product.name}</td>
-                    <td key={"tddescripcion" + index } >{product.description}</td>
-                    <td key={"tdprice"+ index}  >${product.price}</td>
-                    <td key={"tdcategory" + index }>
-                        <ul>
-                            {product.categories.map((category, i)=>{
-                                return(
-                                    <li key={i}>{category}</li>
-                                )
-                            })}
-                        </ul>
-                    </td>
-                    <td key={"tdcolor" + index} >
-                        <ul>
-                            {product.colors.map((color, i)=>{
-                                return(
-                                    <li key={i}>{color}</li>
-                                )
-                            })}
-                        </ul>
-                    </td>
-                    <td key={"tdstock" + index }>{product.stock}</td>
-                </tr>
+
+export default class ProductDetails extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            products:[]
+        }
+        
+    }
+
+    componentDidMount(){
+        fetch('http://localhost:3030/api/products')
+            .then(res=>res.json())
+            .then(result=>{
+                this.setState({
+                    products: result.products
+                })
+            })
+
+    }
+
+    render(){
+        let {products} = this.state;
+        return (
+            <tbody>
+            {products.map( (product, index) =>{
+                return(
+                    <tr>
+                        <ProductRow url={`http://localhost:3030${product.detail}`}/>
+                    </tr>
+                )
+            }
             )
-        }
+            }
+            </tbody>
         )
-        }
-        </tbody>
-    )
+    }
+
 }

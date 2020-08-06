@@ -4,7 +4,7 @@ import ProductDetails from './ProductDetails';
 
 export default function ProductList() {
     return (
-        <div>
+        <div id="ProductList">
             {/* PRODUCTS LIST */}
             <h1 className="h3 mb-2 text-gray-800">All the products in the Database</h1>
             {/* DataTales Example */}
@@ -18,26 +18,7 @@ export default function ProductList() {
                             <tfoot>
                                 <TableColumns/>
                             </tfoot>
-                            <ProductDetails products={[
-                                {
-                                id:1,
-                                name: "Leche",
-                                description: "Muy bueno",
-                                price: 10,
-                                categories: ['descremado', 'entero', 'chocolatado'],
-                                colors:['blanco', 'morron'],
-                                stock: 50
-                                },
-                                {
-                                id:2,
-                                name: "Galletas",
-                                description: "Muy ricas",
-                                price: 20,
-                                categories: ['sin azucar', 'con avena'],
-                                colors:['amarillo', 'morron', 'blanco'],
-                                stock: 500
-                                }
-                            ]}/>
+                            <ProductDetails />
                         </table>
                     </div>
                 </div>

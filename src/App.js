@@ -8,7 +8,7 @@ import Footer from "./components/footer/Footer";
 function App() {
   return (
     <div id="wrapper">
-      <Sidebar items={["Item 1", "Item2", "Item 3"]} />
+      <Sidebar items={["Products", "Categories", "Last product"]} links ={['#ProductList', "#Categories", "#LastProduct"]} />
       <div id="content-wrapper" className="d-flex flex-column">
         <Content></Content>
         <Footer></Footer>
